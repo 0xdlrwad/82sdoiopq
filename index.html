@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer 84NOT Notion Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        html, body > .footer-84not-body {
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            height: 200px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .footer-84not {
+            padding: 50px 0 30px 0;
+        }
+        .footer-content {
+            /* background-color: turquoise; */
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            border-top: 1px solid rgba(133, 133, 133, 0.5);
+        }
+        .footer-content a {
+            text-decoration: none;
+            color: #858585;
+            /* font-weight: 500; */
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: -5%;
+        }
+        
+        .footer-content i {
+            font-size: 24px;
+        }
+        .footer-social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-social a {
+            padding: 5px;
+            border-radius: 12px;
+            transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .footer-social a::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            margin-bottom: 5px;
+        }
+        .footer-social a::before {
+            content: '';
+            position: absolute;
+            bottom: calc(100% - 5px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #333;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .footer-social a:hover::after,
+        .footer-social a:hover::before {
+            opacity: 1;
+        }
+        .footer-social a:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #brand-link::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+    <style>
+        @media (max-width: 768px) {
+            .footer-content i {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body class="footer-84not-body">
+    <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/index.min.js"></script>
+    <div class="container">
+        <footer class="footer-84not">
+            <div class="footer-content">
+                <p><a id="brand-link" href="#" target="_blank" rel="noopener noreferrer">84NOT™</a></p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61585242086479" target="_blank" rel="noopener noreferrer" data-tooltip="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" data-tooltip="Comming Soon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" data-tooltip="Threads">
+                        <i class="fa-brands fa-threads"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function typeWriter(element, text, speed = 100, callback) {
+            element.textContent = '';
+            let i = 0;
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                    if (callback) callback();
+                }
+            }, speed);
+        }
+
+        function animateText() {
+            setTimeout(() => {
+                typeWriter(document.getElementById("brand-link"), "Templates, Automation, Tools.", 100, () => {
+                    setTimeout(() => {
+                        typeWriter(document.getElementById("brand-link"), "84NOT™", 100, () => {
+                            animateText(); // loop
+                        });
+                    }, 3000);
+                });
+            }, 3000);
+        }
+
+        animateText();
+    </script>
+</body>
+</html>
